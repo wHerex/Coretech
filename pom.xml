@@ -20,6 +20,7 @@
 
 	<modules>
 		<module>coretech-app</module>
+		<module>coretech-model</module>
 	</modules>
 
 	<properties>
