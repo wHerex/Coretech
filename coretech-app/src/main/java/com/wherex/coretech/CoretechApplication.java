@@ -3,7 +3,7 @@ package com.wherex.coretech;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"com.wherex.coretech.model", "com.wherex.coretech.repository"})
+@SpringBootApplication
 public class CoretechApplication {
 
 	public static void main(String[] args) {
