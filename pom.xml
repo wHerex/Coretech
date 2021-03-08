@@ -21,6 +21,7 @@
 	<modules>
 		<module>coretech-app</module>
 		<module>coretech-model</module>
+		<module>coretech-web</module>
 	</modules>
 
 	<properties>
