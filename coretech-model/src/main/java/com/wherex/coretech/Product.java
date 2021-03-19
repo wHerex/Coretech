@@ -1,16 +1,14 @@
 package com.wherex.coretech;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class Product {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "products_id_generator", sequenceName = "products_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_id_generator")
     private Long id;
 
     private Long price;
@@ -20,6 +18,10 @@ public class Product {
 
     public Product(Long price) {
         this.price = price;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public Long getPrice() {
