@@ -20,6 +20,10 @@ public class Product {
         this.price = price;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Long getPrice() {
         return price;
     }
