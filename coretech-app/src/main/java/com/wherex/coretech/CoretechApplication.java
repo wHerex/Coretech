@@ -9,5 +9,4 @@ public class CoretechApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoretechApplication.class, args);
 	}
-
 }
