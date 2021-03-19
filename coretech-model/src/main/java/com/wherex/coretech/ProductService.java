@@ -3,9 +3,11 @@ package com.wherex.coretech;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -29,4 +31,14 @@ public class ProductService {
         return new Product(price);
     }
 
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
+    }
+
+    public void editProduct(Long id, Product product) {
+        Product oldProduct = productRepository.findById(id)
+                .orElseThrow();
+        Long price = product.getPrice();
+        oldProduct.setPrice(price);
+    }
 }
