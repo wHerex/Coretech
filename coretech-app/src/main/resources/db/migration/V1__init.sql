@@ -10,7 +10,4 @@ CREATE SEQUENCE public.products_id_seq
     NO MAXVALUE
     CACHE 1;
 
-ALTER TABLE public.products_id_seq
-    OWNER TO coretech;
-
 ALTER SEQUENCE public.products_id_seq OWNED BY public.products.id;
