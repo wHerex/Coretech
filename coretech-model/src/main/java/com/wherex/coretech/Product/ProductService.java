@@ -1,4 +1,4 @@
-package com.wherex.coretech;
+package com.wherex.coretech.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

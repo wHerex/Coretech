@@ -1,4 +1,4 @@
-package com.wherex.coretech;
+package com.wherex.coretech.Product;
 
 import javax.persistence.*;
 
