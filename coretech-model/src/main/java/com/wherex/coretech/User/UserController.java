@@ -28,6 +28,4 @@ public class UserController {
             return new Callback(user, Status.SUCCESS);
         return new Callback(user, Status.FAILURE);
     }
-
-
 }
