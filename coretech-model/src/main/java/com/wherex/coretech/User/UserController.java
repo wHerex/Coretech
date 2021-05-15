@@ -50,4 +50,14 @@ public class UserController {
     public List<User> getUsers(){
         return users;
     }
+
+    @GetMapping("/{login}")
+    public String getPrivilegeByLogin(@PathVariable String login){
+        for(User u : users){
+            if(login.equals(u.getLogin())){
+                return u.getPrivilege();
+            }
+        }
+        return null;
+    }
 }
