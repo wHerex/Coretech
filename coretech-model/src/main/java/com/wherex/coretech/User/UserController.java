@@ -40,4 +40,9 @@ public class UserController {
         }
 
     }
+
+    @PostMapping("/delete/{login}")
+    public void delete(@PathVariable String login){
+        users.removeIf(u -> login.equals(u.getLogin()));
+    }
 }
