@@ -45,4 +45,9 @@ public class UserController {
     public void delete(@PathVariable String login){
         users.removeIf(u -> login.equals(u.getLogin()));
     }
+
+    @GetMapping
+    public List<User> getUsers(){
+        return users;
+    }
 }
