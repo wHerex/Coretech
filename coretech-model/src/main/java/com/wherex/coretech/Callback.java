@@ -13,6 +13,10 @@ public class Callback {
         this.status = status;
     }
 
+    public Callback(){
+
+    }
+
     public User getUser() {
         return user;
     }

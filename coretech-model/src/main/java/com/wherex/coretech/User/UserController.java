@@ -23,7 +23,7 @@ public class UserController {
 
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public Callback login(@RequestBody User user) {
         if (users.contains(user))
             return new Callback(user, Status.SUCCESS);
@@ -38,7 +38,6 @@ public class UserController {
         }else{
             return new Callback(user, Status.FAILURE);
         }
-
     }
 
     @PostMapping("/delete/{login}")
