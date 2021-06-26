@@ -23,7 +23,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public Callback login(@RequestBody User user) {
         if (users.contains(user))
             return new Callback(user, Status.SUCCESS);
