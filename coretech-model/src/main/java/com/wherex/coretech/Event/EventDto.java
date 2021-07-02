@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class EventDto {
     private String id;
     private String subject;
-    private LocalDate startDateTime;
+    private String startDateTime;
     private long eventLength;
     private String eventDescription;
 
