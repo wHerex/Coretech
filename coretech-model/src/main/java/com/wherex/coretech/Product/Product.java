@@ -1,8 +1,15 @@
 package com.wherex.coretech.Product;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 @Table(name = "products")
 public class Product {
 
@@ -11,32 +18,18 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_id_generator")
     private Long id;
 
+    private String name;
+
+    private String description;
+
     private Long price;
 
-    public Product() {
-    }
+    private Long quantity;
 
-    public Product(Long price) {
+    public Product(String name, String description, Long price, Long quantity) {
+        this.name = name;
+        this.description = description;
         this.price = price;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Long getPrice() {
-        return price;
-    }
-
-    public void setPrice(Long price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", price=" + price +
-                '}';
+        this.quantity = quantity;
     }
 }

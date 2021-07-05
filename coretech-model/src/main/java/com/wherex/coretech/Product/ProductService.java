@@ -27,8 +27,12 @@ public class ProductService {
     }
 
     private Product toModel(ProductDto productDto) {
+        Long id = productDto.getId();
+        String name = productDto.getName();
+        String description = productDto.getDescription();
+        Long quantity = productDto.getQuantity();
         Long price = productDto.getPrice();
-        return new Product(price);
+        return new Product(id, name, description, price, quantity);
     }
 
     public void deleteProduct(Long id) {
@@ -38,7 +42,13 @@ public class ProductService {
     public void editProduct(Long id, Product product) {
         Product oldProduct = productRepository.findById(id)
                 .orElseThrow();
+        String name = product.getName();
+        String description = product.getDescription();
         Long price = product.getPrice();
+        Long quantity = product.getQuantity();
+        oldProduct.setName(name);
+        oldProduct.setDescription(description);
         oldProduct.setPrice(price);
+        oldProduct.setQuantity(quantity);
     }
 }

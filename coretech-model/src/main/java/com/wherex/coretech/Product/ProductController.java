@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/product")
+@RequestMapping(path = "/products")
 @CrossOrigin
 public class ProductController {
 

@@ -1,6 +1,9 @@
 CREATE TABLE public.products(
     id int not null,
-    price int
+    name varchar,
+    description varchar,
+    price int,
+    quantity int
 );
 
 CREATE SEQUENCE public.products_id_seq
