@@ -12,7 +12,6 @@ public class EventTest {
     @Test
     public void test() {
         //given
-        Event event = new Event(UUID.randomUUID().toString(), "Subject", LocalDate.of(2021, 7, 1), 8L, "Description");
 
     }
 }

@@ -14,3 +14,11 @@ CREATE SEQUENCE public.products_id_seq
     CACHE 1;
 
 ALTER SEQUENCE public.products_id_seq OWNED BY public.products.id;
+
+CREATE TABLE public.events(
+                                id varchar not null,
+                                subject varchar,
+                                start_date_time date,
+                                event_length int ,
+                                description varchar
+);
