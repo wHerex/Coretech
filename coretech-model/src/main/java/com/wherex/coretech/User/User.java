@@ -1,6 +1,15 @@
 package com.wherex.coretech.User;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @SequenceGenerator(name = "users_id_generator", sequenceName = "users_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_generator")
+    private Long id;
 
     private String login;
 
@@ -8,10 +17,22 @@ public class User {
 
     private String privilege;
 
+    public User(){
+
+    }
+
     public User(String login, String password, String privilege) {
         this.login = login;
         this.password = password;
         this.privilege = privilege;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getLogin() {
