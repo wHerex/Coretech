@@ -22,6 +22,11 @@ public class EventController {
         return eventService.getEvents();
     }
 
+    @GetMapping("/{login}")
+    public List<EventDto> getEventsByLogin(@PathVariable String login){
+        return eventService.getEventsByLogin(login);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void saveEvent(@RequestBody EventDto eventDto){

@@ -21,17 +21,19 @@ public class EventService {
         this.userRepository = userRepository;
     }
 
-    public EventDto getEvent(String id){
-        Event event = getEventFromRepo(id);
-        return toDto(event);
-    }
-
     public List<EventDto> getEvents() {
         List<Event> events = eventRepository.findAll();
         return events.stream()
                 .map(this::toDto)
                 .collect(Collectors.toList());
+    }
 
+    public List<EventDto> getEventsByLogin(String login) {
+        List<Event> events = eventRepository.findAllByOwnerLogin(login);
+        System.out.println(events.size());
+        return events.stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
     }
 
     public void saveEvent(EventDto eventDto) {
@@ -72,4 +74,5 @@ public class EventService {
         return eventRepository.findById(id)
                 .orElseThrow();
     }
+
 }
