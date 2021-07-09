@@ -1,6 +1,7 @@
 package com.wherex.coretech.Event;
 
 import com.wherex.coretech.User.User;
+import com.wherex.coretech.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,12 @@ import java.util.stream.Collectors;
 public class EventService {
 
     private final EventRepository eventRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public EventService(EventRepository eventRepository){
+    public EventService(EventRepository eventRepository, UserRepository userRepository) {
         this.eventRepository = eventRepository;
+        this.userRepository = userRepository;
     }
 
     public EventDto getEvent(String id){
@@ -60,7 +63,9 @@ public class EventService {
         Long eventLength = eventDto.getEventLength();
         String description = eventDto.getEventDescription();
         User owner = eventDto.getOwner();
-        return new Event(subject, startDateTime, eventLength, owner, description);
+        User existingOwner = userRepository.findByLogin(owner.getLogin())
+                .orElseThrow();
+        return new Event(subject, startDateTime, eventLength, existingOwner, description);
     }
 
     private Event getEventFromRepo(String id) {

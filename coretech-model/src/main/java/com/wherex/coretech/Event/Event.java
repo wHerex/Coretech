@@ -24,7 +24,7 @@ public class Event {
     private LocalDate startDateTime;
     private Long eventLength;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(fetch = FetchType.EAGER)
     private User owner;
 
     private String description;
