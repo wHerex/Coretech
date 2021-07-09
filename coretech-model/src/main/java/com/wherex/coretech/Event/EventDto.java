@@ -15,7 +15,7 @@ public class EventDto {
     private String subject;
     private String startDateTime;
     private long eventLength;
-    private User owner;
+    private String ownerLogin;
     private String eventDescription;
 
 }

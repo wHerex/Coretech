@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,9 +50,10 @@ public class EventService {
         String subject = event.getSubject();
         LocalDate startDateTime = event.getStartDateTime();
         User owner = event.getOwner();
+        String ownerLogin = owner.getLogin();
         String startDateTimeString = startDateTime.toString();
 
-        return new EventDto(eventId, subject, startDateTimeString, eventLength, owner, description);
+        return new EventDto(eventId, subject, startDateTimeString, eventLength, ownerLogin, description);
     }
 
     private Event toModel(EventDto eventDto) {
@@ -62,8 +62,8 @@ public class EventService {
         LocalDate startDateTime = LocalDate.parse(startDateTimeString);
         Long eventLength = eventDto.getEventLength();
         String description = eventDto.getEventDescription();
-        User owner = eventDto.getOwner();
-        User existingOwner = userRepository.findByLogin(owner.getLogin())
+        String ownerLogin = eventDto.getOwnerLogin();
+        User existingOwner = userRepository.findByLogin(ownerLogin)
                 .orElseThrow();
         return new Event(subject, startDateTime, eventLength, existingOwner, description);
     }

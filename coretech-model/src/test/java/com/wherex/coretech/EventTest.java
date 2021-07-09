@@ -24,7 +24,7 @@ public class EventTest {
         Long eventLength = 8L;
         User owner = new User("user", "user", "USER");
         String description = "Description";
-        EventDto event = new EventDto(UUID.randomUUID().toString() ,subject, localDate.toString(), eventLength, owner, description);
+        EventDto event = new EventDto(UUID.randomUUID().toString() ,subject, localDate.toString(), eventLength, owner.getLogin(), description);
         String json = null;
         try {
             json = objectMapper.writeValueAsString(event);
