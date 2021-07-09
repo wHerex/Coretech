@@ -1,5 +1,6 @@
 package com.wherex.coretech.Event;
 
+import com.wherex.coretech.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ public class EventDto {
     private String subject;
     private String startDateTime;
     private long eventLength;
+    private User owner;
     private String eventDescription;
 
 }

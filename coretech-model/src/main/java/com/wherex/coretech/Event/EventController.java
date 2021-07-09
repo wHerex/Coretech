@@ -1,6 +1,7 @@
 package com.wherex.coretech.Event;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class EventController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public void saveEvent(@RequestBody EventDto eventDto){
         eventService.saveEvent(eventDto);
     }
@@ -30,4 +32,6 @@ public class EventController {
     public void deleteEvent(@PathVariable String id){
         eventService.deleteEvent(id);
     }
+
+
 }

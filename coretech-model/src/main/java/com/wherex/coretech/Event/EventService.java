@@ -1,10 +1,12 @@
 package com.wherex.coretech.Event;
 
+import com.wherex.coretech.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,8 +47,10 @@ public class EventService {
         String description = event.getDescription();
         String subject = event.getSubject();
         LocalDate startDateTime = event.getStartDateTime();
+        User owner = event.getOwner();
         String startDateTimeString = startDateTime.toString();
-        return new EventDto(eventId, subject, startDateTimeString, eventLength, description);
+
+        return new EventDto(eventId, subject, startDateTimeString, eventLength, owner, description);
     }
 
     private Event toModel(EventDto eventDto) {
@@ -55,7 +59,8 @@ public class EventService {
         LocalDate startDateTime = LocalDate.parse(startDateTimeString);
         Long eventLength = eventDto.getEventLength();
         String description = eventDto.getEventDescription();
-        return new Event(subject, startDateTime, eventLength, description);
+        User owner = eventDto.getOwner();
+        return new Event(subject, startDateTime, eventLength, owner, description);
     }
 
     private Event getEventFromRepo(String id) {
